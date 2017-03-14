@@ -1,18 +1,27 @@
 <html>
   <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.5.1/css/pikaday.min.css">
     <link rel="stylesheet" href="https://trello.com/power-ups/power-up.css">
   </head>
   <body>
     <div id="content">
-      <p>Project Owner: </p>
+      <div class="">
+
+      </div>
+      <label>Start Date:</label>
+      <input type="text" id="datepicker">
+      <label>Project Owner: </label>
       <select id="project-owner">
       </select>
-      <p>Start at</p>
-      <input type="date" />
+      <label>Area: </label>
+      <select id="area">
+      </select>
       <button id="save" class="mod-primary">Save</button>
     </div>
     <script src="https://trello.com/power-ups/power-up.min.js"></script>
     <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://momentjs.com/downloads/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.5.1/pikaday.min.js"></script>
     <script src="./js/settings.js"></script>
   </body>
 </html>

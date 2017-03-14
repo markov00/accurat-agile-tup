@@ -1,12 +1,16 @@
 var Promise = TrelloPowerUp.Promise;
 var t = TrelloPowerUp.iframe();
-
+  t.board('members').then(function(d){
+    console.log('members', d)
+  })
 t.render(function(){
   return Promise.all([
     t.get('card', 'shared', 'po'),
     t.board('members')
   ])
   .spread(function(savedPo, members){
+    console.log('render inside members',members)
+
     members.unshift({id:'', fullName:'---'})
     d3.select('#project-owner')
       .selectAll('options')

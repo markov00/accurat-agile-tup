@@ -1,13 +1,15 @@
 var Promise = TrelloPowerUp.Promise;
 var t = TrelloPowerUp.iframe();
-console.log(t)
 var fruitSelector = document.getElementById('fruit');
 var vegetableSelector = document.getElementById('vegetable');
-
+t.board('members').then(function(data){
+  console.log(data)
+})
 t.render(function(){
+
   return Promise.all([
     t.get('board', 'shared', 'fruit'),
-    t.get('board', 'private', 'vegetable')
+    t.get('board', 'private', 'vegetable'),
   ])
   .spread(function(savedFruit, savedVegetable){
     if(savedFruit && /[a-z]+/.test(savedFruit)){

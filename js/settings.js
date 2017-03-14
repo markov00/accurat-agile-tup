@@ -66,6 +66,7 @@ function renderDatePicker(defaultDate, callback){
   return new Pikaday({
     field: document.getElementById('datepicker'),
     format: DATE_FORMAT,
+    position: 'bottom right',
     defaultDate: moment(defaultDate, DATE_FORMAT).toDate(),
     setDefaultDate: true,
     onSelect: function() {

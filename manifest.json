@@ -1,0 +1,16 @@
+{
+  "name": "Accurat Agile TUp",
+  "details": "Accurat Agile Trello Power-Up",
+  "icon": {
+    "url": "./assets/logo.png"
+  },
+  "author": "Marco Vettorello",
+  "capabilities": [
+    "card-buttons"
+  ],
+  "connectors": {
+    "iframe": {
+      "url": "./"
+    }
+  }
+}

@@ -82,12 +82,14 @@ d3.select('#save')
     console.log(selectedDate)
     console.log(selectedPO)
     console.log(selectedArea)
-    Promise.all([
-      t.set('card', 'shared', 'projectOwner',selectedPO),
-      t.set('card', 'shared', 'startDate',selectedDate),
-      t.set('card', 'shared', 'area',selectedArea)
-    ])
-    .then(function(){
-      t.closePopup()
-    })
+    return t.set('card', 'shared', 'projectOwner',selectedPO)
+      .then(function(){
+        return t.set('card', 'shared', 'startDate',selectedDate)
+      })
+      .then(function(){
+        return t.set('card', 'shared', 'area',selectedArea)
+      })
+      .then(function(){
+        t.closePopup()
+      })
 })

@@ -27,6 +27,7 @@ t.render(function(){
     t.board('members')
   ])
   .spread(function(savedPo, savedArea, savedStartDate, existingMembers){
+    console.log(savedPo, savedArea, savedStartDate, existingMembers)
     renderOptions(existingMembers.members, PROJECT_OWNER_SELECTOR,savedPo,'id','fullName')
     renderOptions(areas, AREA_SELECTOR,savedArea,'id','text')
     selectedDate = savedStartDate

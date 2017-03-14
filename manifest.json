@@ -7,7 +7,7 @@
   "author": "Marco Vettorello",
   "capabilities": [
     "card-buttons",
-    "callback",
+    "callback"
   ],
   "connectors": {
     "iframe": {

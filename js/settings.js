@@ -1,23 +1,22 @@
 var Promise = TrelloPowerUp.Promise;
 var t = TrelloPowerUp.iframe();
-var fruitSelector = document.getElementById('fruit');
-var vegetableSelector = document.getElementById('vegetable');
-t.board('members').then(function(data){
-  console.log(data)
-})
-t.render(function(){
 
+t.render(function(){
   return Promise.all([
-    t.get('board', 'shared', 'fruit'),
-    t.get('board', 'private', 'vegetable'),
+    t.get('card', 'shared', 'po'),
+    t.board('members')
   ])
-  .spread(function(savedFruit, savedVegetable){
-    if(savedFruit && /[a-z]+/.test(savedFruit)){
-      fruitSelector.value = savedFruit;
-    }
-    if(savedVegetable && /[a-z]+/.test(savedVegetable)){
-      vegetableSelector.value = savedVegetable;
-    }
+  .spread(function(savedPo, members){
+    members.unshift({id:'', fullName:'---'})
+    d3.select('#project-owner')
+      .selectAll('options')
+      .data(members)
+      .append('option')
+      .property('value', function(d){return d.id})
+      .text(function(d){
+        return d.fullName
+      })
+      d3.select('#project-owner').property('value', savedPo || '')
   })
   .then(function(){
     t.sizeTo('#content')
@@ -25,12 +24,10 @@ t.render(function(){
   })
 });
 
-document.getElementById('save').addEventListener('click', function(){
-  return t.set('board', 'private', 'vegetable', vegetableSelector.value)
-  .then(function(){
-    return t.set('board', 'shared', 'fruit', fruitSelector.value);
-  })
-  .then(function(){
-    t.closePopup();
-  })
+d3.select('#save')
+  .on('click', function() {
+    t.set('card', 'shared', 'po', d3.select('#project-owner').property('value'))
+      .then(function(){
+        t.closePopup()
+      })
 })

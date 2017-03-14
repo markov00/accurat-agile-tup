@@ -1,28 +1,18 @@
 <html>
   <head>
     <link rel="stylesheet" href="https://trello.com/power-ups/power-up.css">
-    <script src="https://trello.com/power-ups/power-up.min.js"></script>
   </head>
   <body>
     <div id="content">
       <p>Project Owner: </p>
-      <select id="po">
-        <option value="apple">Apple</option>
-        <option value="banana">Banana</option>
-        <option value="date">Date</option>
-        <option value="lemon">Lemon</option>
-        <option value="pineapple">Pineapple</option>
+      <select id="project-owner">
       </select>
-      <p>Private - Select a vegetable</p>
-      <select id="vegetable">
-        <option value="broccoli">Broccoli</option>
-        <option value="corn">Corn</option>
-        <option value="kale">Kale</option>
-        <option value="onion">Onion</option>
-        <option value="spinach">Spinach</option>
-      </select>
+      <p>Start at</p>
+      <input type="date" />
       <button id="save" class="mod-primary">Save</button>
     </div>
+    <script src="https://trello.com/power-ups/power-up.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="./js/settings.js"></script>
   </body>
 </html>

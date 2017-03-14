@@ -8,12 +8,12 @@ t.render(function(){
     t.get('card', 'shared', 'po'),
     t.board('members')
   ])
-  .spread(function(savedPo, members){
+  .spread(function(savedPo, existingMembers){
     console.log('render inside members',members)
 
     d3.select('#project-owner')
       .selectAll('options')
-      .data(members)
+      .data(existingMembers.members)
       .append('option')
       .property('value', function(d){return d.id})
       .text(function(d){

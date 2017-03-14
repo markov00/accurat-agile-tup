@@ -9,7 +9,7 @@ t.render(function(){
     t.board('members')
   ])
   .spread(function(savedPo, existingMembers){
-    console.log('render inside members',members)
+    console.log('render inside members',existingMembers)
 
     d3.select('#project-owner')
       .selectAll('options')

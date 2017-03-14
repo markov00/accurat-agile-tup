@@ -1,6 +1,6 @@
 var Promise = TrelloPowerUp.Promise;
 var t = TrelloPowerUp.iframe();
-
+console.log(t)
 var fruitSelector = document.getElementById('fruit');
 var vegetableSelector = document.getElementById('vegetable');
 

@@ -21,9 +21,9 @@ var picker = null
 
 t.render(function(){
   return Promise.all([
-    t.get('card', 'shared', 'project-owner'),
+    t.get('card', 'shared', 'projectOwner'),
     t.get('card', 'shared', 'area'),
-    t.get('card', 'shared', 'start-date'),
+    t.get('card', 'shared', 'startDate'),
     t.board('members')
   ])
   .spread(function(savedPo, savedArea, savedStartDate, existingMembers){
@@ -83,11 +83,11 @@ d3.select('#save')
     console.log(selectedPO)
     console.log(selectedArea)
     Promise.all([
-      t.set('card', 'shared', 'project-owner',selectedPO),
-      t.set('card', 'shared', 'start-date',selectedDate),
-      t.set('card', 'shared', 'area',selectedArea),
-      ])
-      .then(function(){
-        t.closePopup()
-      })
+      t.set('card', 'shared', 'projectOwner',selectedPO),
+      t.set('card', 'shared', 'startDate',selectedDate),
+      t.set('card', 'shared', 'area',selectedArea)
+    ])
+    .then(function(){
+      t.closePopup()
+    })
 })

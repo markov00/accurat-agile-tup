@@ -11,7 +11,6 @@ t.render(function(){
   .spread(function(savedPo, members){
     console.log('render inside members',members)
 
-    members.unshift({id:'', fullName:'---'})
     d3.select('#project-owner')
       .selectAll('options')
       .data(members)
